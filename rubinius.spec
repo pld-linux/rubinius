@@ -14,7 +14,10 @@ BuildRequires:	gcc >= 5:4.0
 BuildRequires:	gcc >= 6:4.0
 %endif
 BuildRequires:	llvm-devel
+BuildRequires:	openssl-devel
+BuildRequires:	ruby-devel
 BuildRequires:	ruby-rake
+BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
