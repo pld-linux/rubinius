@@ -1,13 +1,13 @@
 
 Summary:	Ruby Interpreter
 Name:		rubinius
-Version:	1.2.0
+Version:	1.2.4
 Release:	1
 License:	BSD
 Group:		Development/Languages
 URL:		http://rubini.us/
-Source0:	http://asset.rubini.us/%{name}-%{version}-20101221.tar.gz
-# Source0-md5:	4284c2660f1f648942de35d4fc871f70
+Source0:	http://asset.rubini.us/%{name}-%{version}.tar.gz
+# Source0-md5:	403c777d19b3553e9cb36701fe002c5e
 %if "%{pld_release}" == "ac"
 BuildRequires:	gcc >= 5:4.0
 %else
@@ -39,6 +39,7 @@ the Rubinius runtime.
 %setup -q
 RELEASE=true \
 	./configure --prefix=%{_prefix} \
+	--skip-prebuilt \
 	--bindir=%{_bindir} \
 	--includedir=%{_includedir}/%{name}/1.2 \
 	--libdir=%{_libdir} \
@@ -66,6 +67,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/rubinius/1.2
 %{_libdir}/rubinius/1.2/lib
 %{_libdir}/rubinius/1.2/runtime
+%{_libdir}/rubinius/1.2/kernel
 %{_libdir}/rubinius/preinstalled
 
 %files ruby
@@ -76,6 +78,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/rdoc
 %attr(755,root,root) %{_bindir}/ri
 %attr(755,root,root) %{_bindir}/ruby
+%attr(755,root,root) %{_bindir}/testrb
 %{_libdir}/bin/rake
 %{_libdir}/bin/rdoc
 %{_libdir}/bin/ri
